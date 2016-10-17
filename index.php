@@ -1,5 +1,11 @@
 <?php
-  require_once "assets/class/init.php";
+
+  if (file_exists('assets/class/init.php')) {
+    require_once "assets/class/init.php";
+  } else {
+    require_once "assets/class/init_pub.php";
+  }
+
 
   /// doesn't do anything at the moment
   //$errMessage = 'none';
