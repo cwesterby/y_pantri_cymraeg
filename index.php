@@ -1,6 +1,6 @@
 <?php
   require_once "assets/class/init.php";
-  
+
   /// doesn't do anything at the moment
   //$errMessage = 'none';
 
@@ -9,15 +9,6 @@
 
   /// print out array to check output from database
   // print_r($allWords);
-
-  /// sorts the array into alphabetical order
-  // foreach ($allWords as $key => $row) {
-  //   $volume[$key]  = $row['welsh_word'];
-  //   $edition[$key] = $row['english_word'];
-  // }
-  // array_multisort($volume, SORT_ASC, $edition, SORT_ASC, $allWords);
-
-
 
   /// if a psot has been submitted upload the the word to the database
   if ($_POST['submit_button'])
@@ -43,8 +34,6 @@
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -67,6 +56,8 @@
   <body>
     <div class="search">
       <h1>Search</h1>
+      <input type="search" id="searchField" value="Search a word">
+      <button id="toggleVerse" href="#">Search a word</button>
     </div>
 
     <div class="results">
@@ -95,6 +86,7 @@
         var $allWords = JSON.parse('<?php echo json_encode($allWords) ?>');
 
         var allWords = [];
+        
         $.each($allWords , function( index, value ) {
           allWords[index] = {id:index, welsh_word:value.welsh_word, english_word:value.english_word};
           // console.log($allWords[index]);
@@ -106,6 +98,22 @@
             if(a.welsh_word > b.welsh_word) return 1;
             return 0;
         });
+
+        // Search while Typing
+      	$('#searchField').bind('input propertychange', function () {
+      		var lookup = $('#searchField').val().replace(' ','+');
+      		if (lookup!==''&&lookup.length>1) {
+      			get(lookup);
+      		}
+      	});
+
+        // Search the array for matching strings
+        function get(lookup) {
+          // console.log(lookup);
+
+        }
+
+
 
         // console.log(allWords);
         //// print out the array
