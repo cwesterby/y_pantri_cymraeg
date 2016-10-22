@@ -4,12 +4,6 @@
   /// doesn't do anything at the moment
   //$errMessage = 'none';
 
-  /// get the array of words from the database
-  $allWords = $database->getAll();
-
-  /// print out array to check output from database
-  // print_r($allWords);
-
   /// if a psot has been submitted upload the the word to the database
   if ($_POST['submit_button'])
   {
@@ -24,13 +18,19 @@
 
     if($database->insert($input, $table))
     {
-      echo "loaded new words";
+      // echo "loaded new words";
     } else {
-      echo "noting loaded";
+      // echo "noting loaded";
     }
   } else {
     /// do nothing....
   }
+
+  /// get the array of words from the database
+  $allWords = $database->getAll();
+
+  /// print out array to check output from database
+  // print_r($allWords);
 
 ?>
 
@@ -108,7 +108,7 @@
 
         // outputs all the words in the database into the results div
         var Sparent = $('.results');
-        outputResultsTable(alphabet,allWords,Sparent);
+        outputResultsTable(alphabet,allWords,Sparent, "all");
 
         // Search while typing. Each keystroke in the search bar triggers
         // the function. The string from the search bar is used to search
@@ -118,24 +118,25 @@
       		var lookup = $('#searchField').val();
           lookup = lookup.toLowerCase();
       		if (lookup!==''&&lookup.length>=1) {
-      			get(lookup, allWords, alphabet);
+      			get(alphabet, lookup, allWords);
       		} else {
             $('.results table').slice(1).remove();
             var Sparent = $('.results');
-            outputResultsTable(alphabet,allWords,Sparent)
+            outputResultsTable(alphabet,allWords,Sparent, "all")
       		}
       	});
 
         // get fundtion used in the 'keyup' action
         // children of results are removed first
-        function get(lookup, allWords, alphabet) {
+        function get(alphabet,lookup, allWords ) {
           // console.log(lookup);
           $('.results table').slice(1).remove();
           var Sparent = $('.results');
 
           result = searchFor(lookup, allWords);
-          outputResultsTable(alphabet,result,Sparent);
+          outputResultsTable(alphabet,result,Sparent, "results");
         }
+
         // loops through the array to find the matching values
         function searchFor(toSearch, objects) {
           var result = [];
@@ -172,12 +173,20 @@
         // console.log(result);
 
         // outputs the results into a table
-        function outputResultsTable(alphabet_array, wordsArray, parent ){
+        function outputResultsTable(alphabet_array, wordsArray, parent, check){
           $.each(alphabet_array, function(index, value){
             var theParent = parent;
             var $lastTable = theParent.children("table[class*='table']").last();
             var query = value;
-            $lastTable.after('<table class="table_'+value+'"><tr><th>'+value+'</th><th></th><th></th></tr>');
+
+            if (check == "results") {
+              $lastTable.after('<table class="table_'+value+'"><tr><th></th><th></th><th></th></tr>');
+            } else {
+              $lastTable.after('<table class="table_'+value+'"><tr><th>'+value+'</th><th></th><th></th></tr>');
+            }
+
+            //$lastTable.after('<table class="table_'+value+'"><tr><th></th><th></th><th></th></tr>');
+            //$lastTable.after('<table class="table_'+value+'"><tr><th>'+value+'</th><th></th><th></th></tr>');
             var $new_table = theParent.children("table[class='table_"+value+"']");
 
             for(var key in wordsArray) {
@@ -196,37 +205,6 @@
             $new_table.append('</table>');
           }); // end of each loop
         } // end of outputResultsTable
-
-
-        function outputResultsTable2(alphabet_array, wordsArray, parent ){
-          $.each(alphabet_array, function(index, value){
-            var theParent = parent;
-            var $lastTable = theParent.children("table[class*='table']").last();
-            var query = value;
-
-
-            for(var key in wordsArray) {
-                if (wordsArray.hasOwnProperty(key)) {
-                    var y = wordsArray[key].welsh_word.charAt(0)
-                    y = y.toUpperCase();
-
-                    if (y != query) {
-                      // do nothing
-                    } else {
-                      $lastTable.after('<table class="table_'+value+'"><tr><th>'+value+'</th><th></th><th></th></tr>');
-                      var $new_table = theParent.children("table[class='table_"+value+"']");
-                      $new_table.append('<tr><td>'+wordsArray[key].welsh_word+'</td><td><---></td><td>'+wordsArray[key].english_word+'</td></tr>');
-                    }
-                }
-            }
-
-            $new_table.append('</table>');
-          }); // end of each loop
-        } // end of outputResultsTable
-
-
-
-
 
 
 
