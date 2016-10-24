@@ -62,52 +62,27 @@
   <body>
     <div class="container container-fluid col-xs-12">
 
-      <div class="results col-xs-12">
-        <h1>Y Pantri Cymraeg</h1>
-        <div class="wrapper wrap col-xs-12"></div>
-      </div>
-
-      <div class="input col-xs-12">
-        <h1>Input</h1>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-          <input type="text" name="welsh_word" class="form-control" id="welsh_word" placeholder="welsh">
-          <input type="text" name="english_word" class="form-control" id="english_word" placeholder="english">
-          <button type="submit" name="submit_button" class="btn btn-default white" value="submit">Submit</button>
-        </form>
-      </div>
-
-      <div class="rectangle">
-          <img src="assets/media/icons/search_white.png" class="icon ">
-          <div class="line"></div>
-          <div class="add-icon">+</div>
-      </div>
-
-      <div class="search col-xs-10 hide">
-        <input type="search" id="searchField" value="">
-        <h1>Search</h1>
+      <div class="slider">
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img src="assets/media/imgs/slide-1.jpg" alt="No two are the same" />
+            </div>
+            <div class="slide slide-2">
+              <img src="assets/media/imgs/slide-2.jpg" alt="Monsieur Mints"  />
+            </div>
+            <div class="slide slide-3">
+              <img src="assets/media/imgs/slide-3.jpg" alt="The Flower Series"  />
+            </div>
+            <div class="slide slide-4">
+              <img src="assets/media/imgs/slide-4.jpg" alt="Salt o' The Sea"  />
+            </div>
+          </div>
+        </div>
+        <div class="slide-buttons"></div>
       </div>
 
     </div> <!-- end of container -->
-
-    <div class="slider">
-      <div class="slide-viewer">
-        <div class="slide-group">
-          <div class="slide slide-1">
-            <img src="media/imgs/slide-1.jpg" alt="No two are the same" />
-          </div>
-          <div class="slide slide-2">
-            <img src="media/imgs/slide-2.jpg" alt="Monsieur Mints"  />
-          </div>
-          <div class="slide slide-3">
-            <img src="media/imgs/slide-3.jpg" alt="The Flower Series"  />
-          </div>
-          <div class="slide slide-4">
-            <img src="media/imgs/slide-4.jpg" alt="Salt o' The Sea"  />
-          </div>
-        </div>
-      </div>
-      <div class="slide-buttons"></div>
-    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/jquery/jquery.min.js"></script>

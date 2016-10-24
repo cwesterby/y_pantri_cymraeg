@@ -1,0 +1,147 @@
+
+
+/* Font style */
+@import url('https://fonts.googleapis.com/css?family=Proza+Libre');
+
+body {
+  font-family: 'Proza Libre', sans-serif;
+  background-color: #FBFBFF;
+}
+
+h1 {
+  color: #C52233;
+}
+
+.rectangle {
+    position: fixed;
+    right: 12px;
+    bottom: 30px;
+    background-color: #51C931;
+    width: 30px;
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor:pointer;
+
+    -webkit-box-shadow: 4px 13px 32px -7px rgba(120,120,120,1);
+    -moz-box-shadow: 4px 13px 32px -7px rgba(120,120,120,1);
+    box-shadow: 4px 13px 32px -7px rgba(120,120,120,1);
+}
+
+.icon {
+  position: relative;
+  left: 5px;
+  top:5px;
+  width: 18px;
+  height: 18px;
+  margin-bottom: 12px;
+}
+
+.add-icon {
+color: #FBFBFF;
+font-size: 1.3em;
+text-align: center;
+}
+
+.line {
+  border-bottom: 2px #FBFBFF solid;
+}
+
+table {
+  font-size: 1.1em;
+}
+
+.wrap {
+  margin-bottom: 0px;
+}
+
+.room {
+  margin-bottom: 20px;
+}
+
+.word {
+  text-align: center;
+  font-size: 1.1em;
+  background-color: #01BAEF;
+  border-radius: 8px;
+  margin-bottom: 2px;
+  min-height: 46px;
+  padding:0;
+  border: 1px #FBFBFF solid;
+  color: #FBFBFF;
+}
+
+.row {
+  margin:0;
+  padding: 0;
+}
+
+.title {
+  background-color: #51C931;
+  border-radius: 10px;
+  padding-left: 10px;
+  margin-bottom: 2px;
+  color: #FBFBFF;
+  font-weight: bold;
+}
+
+.hide {
+  display:none;
+}
+
+.line {
+
+}
+
+.search {
+  position: fixed;
+  bottom: 0px;
+  left: 10px;
+  background-color: #51C931;
+  border-radius: 10px 10px 0px 0px;
+  padding: 5px;
+
+
+}
+
+
+
+/********** SLIDER **********/
+.slider {
+  max-width: 940px;
+  margin: 0px auto 30px auto;}
+
+.slide-viewer {
+    position: relative; /* needed for IE7 */
+    overflow: hidden;
+    height: 430px;}
+
+.slide-group {
+    width: 100%;
+    height: 100%;
+    position: relative;}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;}
+
+.slide:first-child {
+    display: block;}
+
+
+/********** BUTTONS **********/
+.slide-buttons {
+  text-align: center;}
+
+.slide-btn {
+  border: none;
+  background: none;
+  color: #000;
+  font-size: 200%;
+  line-height: 0.5em;}
+
+.slide-btn.active, .slide-btn:hover {
+  color: #ed8e6c;
+  cursor: pointer;}
