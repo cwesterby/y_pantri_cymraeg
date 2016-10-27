@@ -60,36 +60,33 @@
 
   </head>
   <body>
-    <div class="container container-fluid col-xs-12">
+    <div class="backcolor">
+      <h1 class="pagetitle">Y Pantri Cymraeg</h1>
+    </div>
+    <div class="results">
+      <div class="wrapper wrap wrap-start col-xs-12"></div>
+    </div>
 
-      <div class="results col-xs-12">
-        <h1>Y Pantri Cymraeg</h1>
-        <div class="wrapper wrap col-xs-12"></div>
-      </div>
+    <div class="rectangle">
+        <img src="assets/media/icons/search_white.png" class="icon ">
+        <div class="line"></div>
+        <div class="add-icon">+</div>
+    </div>
 
-      <div class="rectangle">
-          <img src="assets/media/icons/search_white.png" class="icon ">
-          <div class="line"></div>
-          <div class="add-icon">+</div>
-      </div>
+    <div class="search col-xs-12">
+      <input type="search" id="searchField" value="" placeholder="search" class="focus">
+      <img src="assets/media/icons/cancel_black.png" class="cross-icon-search cross-icon">
+    </div>
 
-      <div class="search col-xs-12">
-        <input type="search" id="searchField" value="" placeholder="search" class="focus">
-        <img src="assets/media/icons/cancel_black.png" class="cross-icon-search cross-icon">
-      </div>
+    <div class="input col-xs-12">
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <input type="text" name="welsh_word" class="form-control" id="welsh_word" placeholder="welsh">
+        <input type="text" name="english_word" class="form-control" id="english_word" placeholder="english">
+        <button type="submit" name="submit_button" class="btn btn-default white" value="submit">Submit</button>
+        <img src="assets/media/icons/cancel_black.png" class="cross-icon-input cross-icon">
+      </form>
+    </div>
 
-      <div class="input col-xs-12">
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-          <input type="text" name="welsh_word" class="form-control" id="welsh_word" placeholder="welsh">
-          <input type="text" name="english_word" class="form-control" id="english_word" placeholder="english">
-          <button type="submit" name="submit_button" class="btn btn-default white" value="submit">Submit</button>
-          <img src="assets/media/icons/cancel_black.png" class="cross-icon-input cross-icon">
-        </form>
-      </div>
-
-    </div> <!-- end of container -->
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="assets/jquery/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="assets/js/bootstrap.min.js"></script>
@@ -209,7 +206,7 @@
                     if (y != query) {
                       // do nothing
                     } else {
-                      $new_table.append('<div class="row col-xs-12 line"><div class="word welsh_word col-xs-6">'+wordsArray[key].welsh_word+'</div><div class="word english_word col-xs-6">'+wordsArray[key].english_word+'</div></div>');
+                      $new_table.append('<div class="row col-xs-12 line"><div class="word welsh_word col-xs-5">'+wordsArray[key].welsh_word+'</div><div class="word english_word col-xs-5">'+wordsArray[key].english_word+'</div></div>');
                     }
                 }
             }
