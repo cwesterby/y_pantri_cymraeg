@@ -60,9 +60,15 @@
 
   </head>
   <body>
+    <div class="search col-xs-12">
+      <input type="search" id="searchField" value="" placeholder="search" class="focus">
+      <img src="assets/media/icons/cancel_black.png" class="cross-icon-search cross-icon">
+    </div>
+    
     <div class="backcolor">
       <h1 class="pagetitle">Y Pantri Cymraeg</h1>
     </div>
+
     <div class="results">
       <div class="wrapper wrap wrap-start col-xs-12"></div>
     </div>
@@ -73,10 +79,10 @@
         <div class="add-icon">+</div>
     </div>
 
-    <div class="search col-xs-12">
+    <!-- <div class="search col-xs-12">
       <input type="search" id="searchField" value="" placeholder="search" class="focus">
       <img src="assets/media/icons/cancel_black.png" class="cross-icon-search cross-icon">
-    </div>
+    </div> -->
 
     <div class="input col-xs-12">
       <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -189,10 +195,10 @@
             var query = value;
 
             if (check == "results") {
-              $lastTable.after('<div class="wrapper_'+value+' col-xs-12 wrap"><div class="title col-xs-12 hide"></div>');
+              $lastTable.after('<div class="wrapper_'+value+' col-xs-12 wrapSearch wrap"><div class="title col-xs-12 hide"></div>');
 
             } else {
-              $lastTable.after('<div class="wrapper_'+value+' col-xs-12 wrap room"><div class="title col-xs-12">'+value+'</div>');
+              $lastTable.after('<div class="wrapper_'+value+' col-xs-12 wrapMains wrap room"><div class="title col-xs-12">'+value+'</div>');
             }
 
 
@@ -206,7 +212,7 @@
                     if (y != query) {
                       // do nothing
                     } else {
-                      $new_table.append('<div class="row col-xs-12 line"><div class="word welsh_word col-xs-5">'+wordsArray[key].welsh_word+'</div><div class="word english_word col-xs-5">'+wordsArray[key].english_word+'</div></div>');
+                      $new_table.append('<div class="row col-xs-12"><div class="word welsh_word col-xs-5">'+wordsArray[key].welsh_word+'</div><div class="word english_word col-xs-5">'+wordsArray[key].english_word+'</div></div>');
                     }
                 }
             }
