@@ -62,9 +62,18 @@
   <body>
     <div class="search col-xs-12">
       <input type="search" id="searchField" value="" placeholder="search" class="focus">
-      <img src="assets/media/icons/cancel_black.png" class="cross-icon-search cross-icon">
+      <img src="assets/media/icons/teal-cross-full.png" class="cross-icon-search cross-icon">
     </div>
-    
+
+    <div class="input col-xs-12">
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <input type="text" name="welsh_word" class="form-control" id="welsh_word" placeholder="welsh">
+        <input type="text" name="english_word" class="form-control" id="english_word" placeholder="english">
+        <button type="submit" name="submit_button" class="btn btn-default white" value="submit">Submit</button>
+        <img src="assets/media/icons/teal-cross-full.png" class="cross-icon-input cross-icon">
+      </form>
+    </div>
+
     <div class="backcolor">
       <h1 class="pagetitle">Y Pantri Cymraeg</h1>
     </div>
@@ -77,20 +86,6 @@
         <img src="assets/media/icons/search_white.png" class="icon ">
         <div class="line"></div>
         <div class="add-icon">+</div>
-    </div>
-
-    <!-- <div class="search col-xs-12">
-      <input type="search" id="searchField" value="" placeholder="search" class="focus">
-      <img src="assets/media/icons/cancel_black.png" class="cross-icon-search cross-icon">
-    </div> -->
-
-    <div class="input col-xs-12">
-      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-        <input type="text" name="welsh_word" class="form-control" id="welsh_word" placeholder="welsh">
-        <input type="text" name="english_word" class="form-control" id="english_word" placeholder="english">
-        <button type="submit" name="submit_button" class="btn btn-default white" value="submit">Submit</button>
-        <img src="assets/media/icons/cancel_black.png" class="cross-icon-input cross-icon">
-      </form>
     </div>
 
     <script src="assets/jquery/jquery.min.js"></script>
@@ -236,6 +231,7 @@
 
        $(".cross-icon-search").click(function(){
              $(".search").hide();
+             $(".pagetitle").show();
              $('.search').children('input').val('');
              $('.results .wrap').slice(1).remove();
              var Sparent = $('.results');
@@ -248,6 +244,7 @@
 
       $(".icon").click(function(){
             $(".search").show();
+            $(".pagetitle").hide();
             $('.search').children('input').focus();
      });
 
