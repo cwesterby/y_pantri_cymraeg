@@ -131,6 +131,7 @@
       			get(alphabet, lookup, allWords);
       		} else {
             $('.results .wrap').slice(1).remove();
+            $('.row').remove();
             var Sparent = $('.results');
             outputResultsTable(alphabet,allWords,Sparent, "all")
       		}
@@ -141,6 +142,7 @@
         function get(alphabet,lookup, allWords ) {
           // console.log(lookup);
           $('.results .wrap').slice(1).remove();
+          $('.row').remove();
           var Sparent = $('.results');
 
           result = searchFor(lookup, allWords);
@@ -184,36 +186,57 @@
 
         // outputs the results into a table
         function outputResultsTable(alphabet_array, wordsArray, parent, check){
-          $.each(alphabet_array, function(index, value){
+
+          if (check == "results") {
             var theParent = parent;
             var $lastTable = theParent.children("div[class*='wrapper']").last();
-            var query = value;
+            $lastTable.after('<div class="wrapper_ col-xs-12 wrapSearch wrap">');
 
-            if (check == "results") {
-              $lastTable.after('<div class="wrapper_'+value+' col-xs-12 wrapSearch wrap"><div class="title col-xs-12 hide"></div>');
+            $.each(alphabet_array, function(index, value){
+              var query = value;
+              for(var key in wordsArray) {
+                  if (wordsArray.hasOwnProperty(key)) {
+                      var y = wordsArray[key].welsh_word.charAt(0)
+                      y = y.toUpperCase();
 
-            } else {
+                      if (y != query) {
+                        // do nothing
+                      } else {
+                        $lastTable.append('<div class="row col-xs-12"><div class="word welsh_word col-xs-5">'+wordsArray[key].welsh_word+'</div><div class="word english_word col-xs-5">'+wordsArray[key].english_word+'</div></div>');
+                      }
+                  }
+              }
+
+
+            });
+            $lastTable.append('</div>');
+
+          } else {
+            $.each(alphabet_array, function(index, value){
+              var theParent = parent;
+              var $lastTable = theParent.children("div[class*='wrapper']").last();
+              var query = value;
+
               $lastTable.after('<div class="wrapper_'+value+' col-xs-12 wrapMains wrap room"><div class="title col-xs-12">'+value+'</div>');
-            }
 
+              var $new_table = theParent.children("div[class*='wrapper_"+value+"']");
 
-            var $new_table = theParent.children("div[class*='wrapper_"+value+"']");
+              for(var key in wordsArray) {
+                  if (wordsArray.hasOwnProperty(key)) {
+                      var y = wordsArray[key].welsh_word.charAt(0)
+                      y = y.toUpperCase();
 
-            for(var key in wordsArray) {
-                if (wordsArray.hasOwnProperty(key)) {
-                    var y = wordsArray[key].welsh_word.charAt(0)
-                    y = y.toUpperCase();
+                      if (y != query) {
+                        // do nothing
+                      } else {
+                        $new_table.append('<div class="row col-xs-12"><div class="word welsh_word col-xs-5">'+wordsArray[key].welsh_word+'</div><div class="word english_word col-xs-5">'+wordsArray[key].english_word+'</div></div>');
+                      }
+                  }
+              }
 
-                    if (y != query) {
-                      // do nothing
-                    } else {
-                      $new_table.append('<div class="row col-xs-12"><div class="word welsh_word col-xs-5">'+wordsArray[key].welsh_word+'</div><div class="word english_word col-xs-5">'+wordsArray[key].english_word+'</div></div>');
-                    }
-                }
-            }
-
-            $new_table.append('</div>');
-          }); // end of each loop
+              $new_table.append('</div>');
+            }); // end of each loop
+          } // end of if else statement
         } // end of outputResultsTable
 
 
@@ -230,6 +253,7 @@
          });
 
        $(".cross-icon-search").click(function(){
+            $('.row').remove();
              $(".search").hide();
              $(".pagetitle").show();
              $('.search').children('input').val('');
