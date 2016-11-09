@@ -200,11 +200,11 @@ input[type="text"] {
   font-size: 3.1em;
   background-color: #ffffff;
   border-radius: 8px;
-  min-height: 200px;
+  min-height: 120px;
   padding:0;
   border: 1px #FBFBFF solid;
   color: #1e3746;
-  line-height: 200px;
+  line-height: 120px;
   margin: 0px 4% 8px 4%;
 
   -webkit-box-shadow: 0px 6px 3px -1px rgba(225,225,219,1);
@@ -233,7 +233,7 @@ box-shadow: 0px 6px 3px -1px rgba(225,225,219,1);
 
 .cross-game {
   position: fixed;
-  top:20px;
+  top:60px;
   right: 20px;
   z-index: 10;
 }
