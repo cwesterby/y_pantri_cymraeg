@@ -86,6 +86,7 @@
         <img src="assets/media/icons/search_white.png" class="icon ">
         <div class="line"></div>
         <div class="add-icon">+</div>
+        <div class="game-icon">g</div>
     </div>
     <div class="game-wrapper">
       <img src="assets/media/icons/teal-cross-full.png" class="cross-icon-game cross-icon cross-game">
@@ -292,6 +293,12 @@
       $(".add-icon").click(function(){
            $(".input").show();
            $('.input').children('input').focus();
+      });
+
+      $(".game-icon").click(function(){
+        $(".input").hide();
+        $(".search").hide();
+        $(".game-wrapper").show();
       });
 
 
