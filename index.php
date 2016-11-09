@@ -87,6 +87,18 @@
         <div class="line"></div>
         <div class="add-icon">+</div>
     </div>
+    <div class="game-wrapper">
+      <img src="assets/media/icons/teal-cross-full.png" class="cross-icon-game cross-icon cross-game">
+      <h1 class="pagetitle">Y Pantri Cymraeg</h1>
+      <h1 class="pagetitle">Word Match</h1>
+      <!-- button to start the game  -->
+      <div class="game-q questionBox">welsh word</div>
+      <div class="game-a0 answerBox">engish word 1</div>
+      <div class="game-a1 answerBox">engish word 2</div>
+      <div class="game-a2 answerBox">engish word 3</div>
+      <div class="game-a3 answerBox">engish word 4</div>
+      <div class="btn-info btn start-game col-xs-10">New Word</div>
+    </div>
 
     <script src="assets/jquery/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -262,6 +274,11 @@
              outputResultsTable(alphabet,allWords,Sparent, "all");
       });
 
+      $(".cross-icon-game").click(function(){
+            $(".game-wrapper").hide();
+     });
+
+
       $(".cross-icon-input").click(function(){
             $(".input").hide();
      });
@@ -272,12 +289,95 @@
             $('.search').children('input').focus();
      });
 
-     $(".add-icon").click(function(){
+      $(".add-icon").click(function(){
            $(".input").show();
            $('.input').children('input').focus();
-    });
+      });
+
+
+      // Game section
+      $(".start-game").click(function(){
+        $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
+        for (var i = 0; i < 4; i++) {
+          // console.log('.game-a'+ i );
+          $('.game-a'+ i ).removeClass('false');
+          $('.game-a'+ i ).removeClass('correct');
+          $('.game-a'+ i ).css({'background-color': '#ffffff' , 'color':'#1e3746'});
+          $('.game-a'+ i ).off();
+        }
+
+        // get max number from allWords
+        var maxNum = allWords.length -1;
+
+        // get 4 unique random number no higher than maxNum
+        var n = randomArray(4, maxNum);
+        // console.log(n);
+
+        // set create gameAnswers array which contains welsh and english words
+        var gameAnswers = [];
+        // console.log(allWords);
+        // console.log(n);
+        $.each(n , function( index, value ) {
+          gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"false"};
+        });
+
+        gameAnswers[1].type = "correct";
+        console.log(gameAnswers);
+
+        var o = randomArray(4, 4);
+        $('.game-q').empty();
+        $('.game-q').append(gameAnswers[1].welsh_word);
+
+        $('.game-a0').empty();
+        $('.game-a1').empty();
+        $('.game-a2').empty();
+        $('.game-a3').empty();
+
+        for (var i = 0; i < o.length; i++) {
+          // console.log('.game-a'+ i );
+          $('.game-a'+ i ).append(gameAnswers[o[i]].english_word);
+          $('.game-a'+ i ).addClass(gameAnswers[o[i]].type);
+        }
+
+
+
+
+
+        // on click for right / wrong answers
+        $(".false").click(function(){
+             $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
+        });
+
+        $(".correct").click(function(){
+             $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+             $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+        // randomArray(4, maxNum);
+        function randomArray(len, maxNum){
+          var arr = []
+          while(arr.length < len){
+            var randomnumber = Math.ceil(Math.random()*maxNum)
+            if(arr.indexOf(randomnumber) > -1) continue;
+            arr[arr.length] = randomnumber;
+          }
+          return arr;
+        }
 
       });
+    });
+
     </script>
     <script src="assets/js/slider.js"></script>
   </body>
