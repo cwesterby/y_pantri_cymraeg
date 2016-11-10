@@ -347,31 +347,31 @@
           $('.game-a'+ i ).off();
         }
 
-        alert("jam")
-        // var o = randomArray(4, 4);
-        // $('.game-q').empty();
-        // $('.game-q').append(gameAnswers[1].welsh_word);
+        // alert("jam")
+        var o = randomArray(4, 4);
+        $('.game-q').empty();
+        $('.game-q').append(gameAnswers[1].welsh_word);
 
-        // $('.game-a0').empty();
-        // $('.game-a1').empty();
-        // $('.game-a2').empty();
-        // $('.game-a3').empty();
+        $('.game-a0').empty();
+        $('.game-a1').empty();
+        $('.game-a2').empty();
+        $('.game-a3').empty();
 
-        // for (var i = 0; i < o.length; i++) {
-        //   // console.log('.game-a'+ i );
-        //   $('.game-a'+ i ).append(gameAnswers[o[i]].english_word);
-        //   $('.game-a'+ i ).addClass(gameAnswers[o[i]].type);
-        // }
+        for (var i = 0; i < o.length; i++) {
+          // console.log('.game-a'+ i );
+          $('.game-a'+ i ).append(gameAnswers[o[i]].english_word);
+          $('.game-a'+ i ).addClass(gameAnswers[o[i]].type);
+        }
 
 
-        // $('.false').on('click touchstart' , function(){
-        //   $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
-        // });
+        $('.false').on('click touchstart' , function(){
+          $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
+        });
 
-        // $('.correct').on('click touchstart' , function(){
-        //   $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        //   $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        // });
+        $('.correct').on('click touchstart' , function(){
+          $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+          $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        });
 
 //*********************
         // on click for right / wrong answers
