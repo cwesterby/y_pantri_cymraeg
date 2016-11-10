@@ -40,7 +40,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>croeso i'r pantri</title>
 
@@ -58,7 +60,6 @@
     <!-- Custom style sheet -->
     <link href="assets/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
   </head>
   <body>
     <div class="search col-xs-12">
