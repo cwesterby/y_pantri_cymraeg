@@ -19,6 +19,7 @@
     if($database->insert($input, $table))
     {
       // echo "loaded new words";
+      header("Location: success.php");
     } else {
       // echo "noting loaded";
     }
@@ -303,7 +304,7 @@
 
 
       // Game section
-      $(".start-game").click(function(){
+      $('.start-game').on('click touchstart', function(){
         $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
         for (var i = 0; i < 4; i++) {
           // console.log('.game-a'+ i );
@@ -347,29 +348,25 @@
         }
 
 
+        $('.false').on('click touchstart' , function(){
+          $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
+        });
 
+        $('.correct').on('click touchstart' , function(){
+          $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+          $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        });
 
 
         // on click for right / wrong answers
-        $(".false").click(function(){
-             $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
-        });
+        // $(".false").click(function(){
+        //      $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
+        // });
 
-        $(".correct").click(function(){
-             $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-             $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        });
-
-
-
-
-
-
-
-
-
-
-
+        // $(".correct").click(function(){
+        //      $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        //      $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        // });
 
         // randomArray(4, maxNum);
         function randomArray(len, maxNum){
@@ -382,7 +379,8 @@
           return arr;
         }
 
-      });
+      }); // end of the game function
+
     });
 
     </script>
