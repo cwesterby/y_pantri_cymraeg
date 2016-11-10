@@ -374,7 +374,7 @@
         // });
 
 //*********************
-        on click for right / wrong answers
+        // on click for right / wrong answers
         $(".false").click(function(){
              $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
         });
