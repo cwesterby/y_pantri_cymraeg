@@ -304,8 +304,7 @@
 
 
       // Game section
-      $('.start-game').on('click touchstart', function(ev){
-        ev.preventDefault();
+      $('.start-game').on('click touchstart tap', function(){
         $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
         for (var i = 0; i < 4; i++) {
           // console.log('.game-a'+ i );
@@ -349,9 +348,8 @@
         }
 
 
-        $('.false').on('click touchstart' , function(ev){
+        $('.false').on('click touchstart' , function(){
           $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
-          ev.preventDefault();
         });
 
         $('.correct').on('click touchstart' , function(){
