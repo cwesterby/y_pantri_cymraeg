@@ -306,7 +306,7 @@
 
 
       // Game section
-      $(document).on('touchstart click','.start-game' , function(){
+      $('.start-game').on('touchstart click', function(){
 
         alert("jam spam");
         // $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
