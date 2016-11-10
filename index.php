@@ -305,10 +305,38 @@
       });
 
 
+      function wordsSetUp(){
+        // get max number from allWords
+        var maxNum = allWords.length -1;
+
+        // get 4 unique random number no higher than maxNum
+        var n = randomArray(4, maxNum);
+
+        // set create gameAnswers array which contains welsh and english words
+        var gameAnswers = [];
+        $.each(n , function( index, value ) {
+           gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"false"};
+         });
+        gameAnswers[1].type = "correct";
+
+        // function to generate an array with random numbers
+        function randomArray(len, maxNum){
+          var arr = []
+          while(arr.length < len){
+            var randomnumber = Math.ceil(Math.random()*maxNum)
+            if(arr.indexOf(randomnumber) > -1) continue;
+            arr[arr.length] = randomnumber;
+          }
+          return arr;
+        } // end of randomArray function
+      } // end of the wordSetUp function
+
+
       // Game section
       $('.start-game').on('touchstart click', function(){
+        wordsSetUp();
+        alert("jam")
 
-        alert("jam spam");
         // $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
         // for (var i = 0; i < 4; i++) {
         //   // console.log('.game-a'+ i );
@@ -317,45 +345,31 @@
         //   $('.game-a'+ i ).css({'background-color': '#ffffff' , 'color':'#1e3746'});
         //   $('.game-a'+ i ).off();
         // }
-        //
-        // // get max number from allWords
-        // var maxNum = allWords.length -1;
-        //
-        // // get 4 unique random number no higher than maxNum
-        // var n = randomArray(4, maxNum);
-        // // console.log(n);
-        //
-        // // set create gameAnswers array which contains welsh and english words
-        // var gameAnswers = [];
-        // // console.log(allWords);
-        // // console.log(n);
-        // $.each(n , function( index, value ) {
-        //   gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"false"};
-        // });
-        //
+
+
         // gameAnswers[1].type = "correct";
         // console.log(gameAnswers);
-        //
+
         // var o = randomArray(4, 4);
         // $('.game-q').empty();
         // $('.game-q').append(gameAnswers[1].welsh_word);
-        //
+
         // $('.game-a0').empty();
         // $('.game-a1').empty();
         // $('.game-a2').empty();
         // $('.game-a3').empty();
-        //
+
         // for (var i = 0; i < o.length; i++) {
         //   // console.log('.game-a'+ i );
         //   $('.game-a'+ i ).append(gameAnswers[o[i]].english_word);
         //   $('.game-a'+ i ).addClass(gameAnswers[o[i]].type);
         // }
-        //
-        //
+
+
         // $('.false').on('click touchstart' , function(){
         //   $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
         // });
-        //
+
         // $('.correct').on('click touchstart' , function(){
         //   $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
         //   $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
@@ -372,16 +386,6 @@
         //      $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
         // });
 
-        // randomArray(4, maxNum);
-        function randomArray(len, maxNum){
-          var arr = []
-          while(arr.length < len){
-            var randomnumber = Math.ceil(Math.random()*maxNum)
-            if(arr.indexOf(randomnumber) > -1) continue;
-            arr[arr.length] = randomnumber;
-          }
-          return arr;
-        }
 
       }); // end of the game function
 
