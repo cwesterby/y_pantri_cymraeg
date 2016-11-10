@@ -347,7 +347,7 @@
           $('.game-a'+ i ).off();
         }
 
-
+        alert("jam")
         // var o = randomArray(4, 4);
         // $('.game-q').empty();
         // $('.game-q').append(gameAnswers[1].welsh_word);
