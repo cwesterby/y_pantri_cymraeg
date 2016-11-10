@@ -348,8 +348,9 @@
         }
 
 
-        $('.false').on('click touchstart' , function(){
+        $('.false').on('click touchstart' , function(ev){
           $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
+          ev.preventDefault();
         });
 
         $('.correct').on('click touchstart' , function(){
