@@ -317,7 +317,7 @@
         $.each(n , function( index, value ) {
            gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"false"};
          });
-        // gameAnswers[1].type = "correct";
+        gameAnswers[1].type = "correct";
 
         // function to generate an array with random numbers
         function randomArray(len, maxNum){
@@ -336,20 +336,17 @@
       // Game section
       $('.start-game').on('touchstart click', function(){
         wordsSetUp();
-        alert("jam")
+        // alert("jam")
 
-        // $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
-        // for (var i = 0; i < 4; i++) {
-        //   // console.log('.game-a'+ i );
-        //   $('.game-a'+ i ).removeClass('false');
-        //   $('.game-a'+ i ).removeClass('correct');
-        //   $('.game-a'+ i ).css({'background-color': '#ffffff' , 'color':'#1e3746'});
-        //   $('.game-a'+ i ).off();
-        // }
+        $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
+        for (var i = 0; i < 4; i++) {
+          // console.log('.game-a'+ i );
+          $('.game-a'+ i ).removeClass('false');
+          $('.game-a'+ i ).removeClass('correct');
+          $('.game-a'+ i ).css({'background-color': '#ffffff' , 'color':'#1e3746'});
+          $('.game-a'+ i ).off();
+        }
 
-
-        // gameAnswers[1].type = "correct";
-        // console.log(gameAnswers);
 
         // var o = randomArray(4, 4);
         // $('.game-q').empty();
