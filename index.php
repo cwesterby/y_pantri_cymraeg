@@ -58,7 +58,7 @@
     <!-- Custom style sheet -->
     <link href="assets/css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Abhaya+Libre" rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
   </head>
   <body>
     <div class="search col-xs-12">
