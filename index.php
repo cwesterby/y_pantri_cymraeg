@@ -317,7 +317,7 @@
         $.each(n , function( index, value ) {
            gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"false"};
          });
-        gameAnswers[1].type = "correct";
+        // gameAnswers[1].type = "correct";
 
         // function to generate an array with random numbers
         function randomArray(len, maxNum){
@@ -326,6 +326,7 @@
             var randomnumber = Math.ceil(Math.random()*maxNum)
             if(arr.indexOf(randomnumber) > -1) continue;
             arr[arr.length] = randomnumber;
+            break;
           }
           return arr;
         } // end of randomArray function
@@ -334,7 +335,7 @@
 
       // Game section
       $('.start-game').on('touchstart click', function(){
-        // wordsSetUp();
+        wordsSetUp();
         alert("jam")
 
         // $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
