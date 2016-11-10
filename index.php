@@ -334,7 +334,7 @@
 
       // Game section
       $('.start-game').on('touchstart click', function(){
-        wordsSetUp();
+        // wordsSetUp();
         alert("jam")
 
         // $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
