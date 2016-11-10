@@ -326,10 +326,25 @@
             var randomnumber = Math.ceil(Math.random()*maxNum)
             if(arr.indexOf(randomnumber) > -1) continue;
             arr[arr.length] = randomnumber;
-            break;
           }
           return arr;
         } // end of randomArray function
+
+        var o = randomArray(4, 4);
+        $('.game-q').empty();
+        $('.game-q').append(gameAnswers[1].welsh_word);
+
+        $('.game-a0').empty();
+        $('.game-a1').empty();
+        $('.game-a2').empty();
+        $('.game-a3').empty();
+
+        for (var i = 0; i < o.length; i++) {
+          // console.log('.game-a'+ i );
+          $('.game-a'+ i ).append(gameAnswers[o[i]].english_word);
+          $('.game-a'+ i ).addClass(gameAnswers[o[i]].type);
+        }
+
       } // end of the wordSetUp function
 
 
@@ -347,21 +362,8 @@
           $('.game-a'+ i ).off();
         }
 
-        // alert("jam")
-        var o = randomArray(4, 4);
-        $('.game-q').empty();
-        $('.game-q').append(gameAnswers[1].welsh_word);
+        alert("jam")
 
-        $('.game-a0').empty();
-        $('.game-a1').empty();
-        $('.game-a2').empty();
-        $('.game-a3').empty();
-
-        for (var i = 0; i < o.length; i++) {
-          // console.log('.game-a'+ i );
-          $('.game-a'+ i ).append(gameAnswers[o[i]].english_word);
-          $('.game-a'+ i ).addClass(gameAnswers[o[i]].type);
-        }
 
 
         // $('.false').on('click touchstart' , function(){
