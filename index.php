@@ -336,7 +336,7 @@
       // Game section
       $('.start-game').on('touchstart click', function(){
         wordsSetUp();
-        // alert("jam")
+
 
         $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
         for (var i = 0; i < 4; i++) {
@@ -364,25 +364,25 @@
         }
 
 
-        $('.false').on('click touchstart' , function(){
-          $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
-        });
-
-        $('.correct').on('click touchstart' , function(){
-          $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-          $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        });
+        // $('.false').on('click touchstart' , function(){
+        //   $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
+        // });
+        //
+        // $('.correct').on('click touchstart' , function(){
+        //   $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        //   $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        // });
 
 //*********************
-        // on click for right / wrong answers
-        // $(".false").click(function(){
-        //      $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
-        // });
+        on click for right / wrong answers
+        $(".false").click(function(){
+             $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
+        });
 
-        // $(".correct").click(function(){
-        //      $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        //      $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        // });
+        $(".correct").click(function(){
+             $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+             $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        });
 
 
       }); // end of the game function
