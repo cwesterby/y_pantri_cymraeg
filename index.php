@@ -100,7 +100,7 @@
       <div class="game-a1 answerBox">engish word 2</div>
       <div class="game-a2 answerBox">engish word 3</div>
       <div class="game-a3 answerBox">engish word 4</div>
-      <div class="btn-info btn start-game col-xs-10"><a href="#" class="startGame" >New Word</a></div>
+      <div class="btn-info btn start-game col-xs-10">New Word</div>
     </div>
 
     <script src="assets/jquery/jquery.min.js"></script>
@@ -305,7 +305,7 @@
 
 
       // Game section
-      $('.startGame').on('click touchstart', function(){
+      $('.start-game ').bind('touchstart click', function(){
         $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
         for (var i = 0; i < 4; i++) {
           // console.log('.game-a'+ i );
