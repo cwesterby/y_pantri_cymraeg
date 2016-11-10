@@ -90,6 +90,7 @@
         <div class="game-icon">g</div>
     </div>
     <div class="game-wrapper">
+      <div class="btn-info btn start-game col-xs-10">New Word</div>
       <img src="assets/media/icons/teal-cross-full.png" class="cross-icon-game cross-icon cross-game">
       <h1 class="pagetitle">Y Pantri Cymraeg</h1>
       <h1 class="pagetitle">Word Match</h1>
@@ -99,7 +100,7 @@
       <div class="game-a1 answerBox">engish word 2</div>
       <div class="game-a2 answerBox">engish word 3</div>
       <div class="game-a3 answerBox">engish word 4</div>
-      <div class="btn-info btn start-game col-xs-10">New Word</div>
+      <!-- <div class="btn-info btn start-game col-xs-10">New Word</div> -->
     </div>
 
     <script src="assets/jquery/jquery.min.js"></script>
