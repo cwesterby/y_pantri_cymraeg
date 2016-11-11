@@ -315,8 +315,8 @@
           $('.game-a'+ i ).css({'background-color': '#ffffff' , 'color':'#1e3746'});
           $('.game-a'+ i ).off();
         }
-        //   wordsSetUp();
-        alert("jam")
+        wordsSetUp();
+        // alert("jam")
 
 
 
@@ -346,27 +346,27 @@
         var maxNum = allWords.length -1;
 
         // get 4 unique random number no higher than maxNum
-        var n = randomArray(4, maxNum);
+        var uniqueNum = randomArray(4, maxNum);
 
         // set create gameAnswers array which contains welsh and english words
         var gameAnswers = [];
-        $.each(n , function( index, value ) {
+        $.each(uniqueNum , function( index, value ) {
            gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"cw-false"};
          });
         gameAnswers[1].type = "cw-correct";
 
         // function to generate an array with random numbers
         function randomArray(len, maxNum){
-          var arr = []
-          while(arr.length < len){
+          var tempArr = []
+          while(tempArr.length < len){
             var randomnumber = Math.ceil(Math.random()*maxNum)
-            if(arr.indexOf(randomnumber) > -1) continue;
-            arr[arr.length] = randomnumber;
+            if(tempArr.indexOf(randomnumber) > -1) continue;
+            tempArr[tempArr.length] = randomnumber;
           }
-          return arr;
+          return tempArr;
         } // end of randomArray function
 
-        var o = randomArray(4, 4);
+        var fourAray = randomArray(4, 4);
         $('.game-q').empty();
         $('.game-q').append(gameAnswers[1].welsh_word);
 
@@ -375,10 +375,10 @@
         $('.game-a2').empty();
         $('.game-a3').empty();
 
-        for (var i = 0; i < o.length; i++) {
-          $('.game-a'+ i ).append(gameAnswers[o[i]].english_word);
-          $('.game-a'+ i ).addClass(gameAnswers[o[i]].type);
-          console.log(gameAnswers[o[i]].type);
+        for (var i = 0; i < fourAray.length; i++) {
+          $('.game-a'+ i ).append(gameAnswers[fourAray[i]].english_word);
+          $('.game-a'+ i ).addClass(gameAnswers[fourAray[i]].type);
+          console.log(gameAnswers[fourAray[i]].type);
         }
 
       } // end of the wordSetUp function
