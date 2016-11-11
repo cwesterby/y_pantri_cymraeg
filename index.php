@@ -347,8 +347,8 @@
 
         // get 4 unique random number no higher than maxNum
         var uniqueNum = randomArray(4, maxNum);
-        console.log(uniqueNum);
 
+        console.log(allWords);
 
         // set create gameAnswers array which contains welsh and english words
         var gameAnswers = [];
