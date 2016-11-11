@@ -353,7 +353,7 @@
         // set create gameAnswers array which contains welsh and english words
         var gameAnswers = [];
         $.each(uniqueNum , function( index, value ) {
-          console.log(allWords[value].welsh_word);
+          console.log(allWords[value]);
            gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"cw-false"};
          });
         gameAnswers[1].type = "cw-correct";
