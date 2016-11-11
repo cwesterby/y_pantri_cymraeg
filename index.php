@@ -354,7 +354,7 @@
         var gameAnswers = [];
         $.each(uniqueNum , function( index, value ) {
           console.log(allWords[value].id);
-           gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"cw-false"};
+           // gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"cw-false"};
          });
         gameAnswers[1].type = "cw-correct";
 
