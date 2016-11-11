@@ -308,15 +308,15 @@
       // Game section
       $('.start-game').on('touchstart click', function(){
 
-        $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
-        for (var i = 0; i < 4; i++) {
-          $('.game-a'+ i ).removeClass('cw-false');
-          $('.game-a'+ i ).removeClass('cw-correct');
-          $('.game-a'+ i ).css({'background-color': '#ffffff' , 'color':'#1e3746'});
-          $('.game-a'+ i ).off();
-        }
-          wordsSetUp();
-        // alert("jam")
+        // $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
+        // for (var i = 0; i < 4; i++) {
+        //   $('.game-a'+ i ).removeClass('cw-false');
+        //   $('.game-a'+ i ).removeClass('cw-correct');
+        //   $('.game-a'+ i ).css({'background-color': '#ffffff' , 'color':'#1e3746'});
+        //   $('.game-a'+ i ).off();
+        // }
+        //   wordsSetUp();
+        alert("jam")
 
 
 
