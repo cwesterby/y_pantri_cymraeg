@@ -306,7 +306,7 @@
 
 
       // Game section
-      $('.start-game').on('touchstart click', function(){
+      $('.start-game').on('click', function(){
 
         $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
         for (var i = 0; i < 4; i++) {
