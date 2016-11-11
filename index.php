@@ -305,6 +305,42 @@
       });
 
 
+      // Game section
+      $('.start-game').on('touchstart click', function(){
+
+        $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
+        for (var i = 0; i < 4; i++) {
+          $('.game-a'+ i ).removeClass('cw-false');
+          $('.game-a'+ i ).removeClass('cw-correct');
+          $('.game-a'+ i ).css({'background-color': '#ffffff' , 'color':'#1e3746'});
+          $('.game-a'+ i ).off();
+        }
+          wordsSetUp();
+        // alert("jam")
+
+
+
+        // $('.false').on('click touchstart' , function(){
+        //   $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
+        // });
+        //
+        // $('.correct').on('click touchstart' , function(){
+        //   $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        //   $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        // });
+
+//*********************
+        // on click for right / wrong answers
+        $(".cw-false").click(function(){
+             $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
+        });
+
+        $(".cw-correct").click(function(){
+             $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+             $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
+        });
+      }); // end of the game function
+
       function wordsSetUp(){
         // get max number from allWords
         var maxNum = allWords.length -1;
@@ -315,9 +351,9 @@
         // set create gameAnswers array which contains welsh and english words
         var gameAnswers = [];
         $.each(n , function( index, value ) {
-           gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"false"};
+           gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"cw-false"};
          });
-        gameAnswers[1].type = "correct";
+        gameAnswers[1].type = "cw-correct";
 
         // function to generate an array with random numbers
         function randomArray(len, maxNum){
@@ -340,56 +376,15 @@
         $('.game-a3').empty();
 
         for (var i = 0; i < o.length; i++) {
-          // console.log('.game-a'+ i );
           $('.game-a'+ i ).append(gameAnswers[o[i]].english_word);
           $('.game-a'+ i ).addClass(gameAnswers[o[i]].type);
+          console.log(gameAnswers[o[i]].type);
         }
 
       } // end of the wordSetUp function
 
 
-      // Game section
-      $('.start-game').on('touchstart click', function(){
-        wordsSetUp();
-
-
-        $('.questionBox').css({'background-color': '#ffffff' , 'color':'#1e3746'});
-        for (var i = 0; i < 4; i++) {
-          // console.log('.game-a'+ i );
-          $('.game-a'+ i ).removeClass('false');
-          $('.game-a'+ i ).removeClass('correct');
-          $('.game-a'+ i ).css({'background-color': '#ffffff' , 'color':'#1e3746'});
-          $('.game-a'+ i ).off();
-        }
-
-        alert("jam")
-
-
-
-        // $('.false').on('click touchstart' , function(){
-        //   $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
-        // });
-        //
-        // $('.correct').on('click touchstart' , function(){
-        //   $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        //   $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        // });
-
-//*********************
-        // on click for right / wrong answers
-        $(".false").click(function(){
-             $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
-        });
-
-        $(".correct").click(function(){
-             $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-             $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        });
-
-
-      }); // end of the game function
-
-    });
+    }); // end of document ready
 
     </script>
     <script src="assets/js/slider.js"></script>
