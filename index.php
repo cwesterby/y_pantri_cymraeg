@@ -118,10 +118,11 @@
         // which is at the beginning of this file
         var $allWords = JSON.parse('<?php echo json_encode($allWords) ?>');
 
+
         // turns the $allWords object into an array so the words can be sorted
         var allWords = [];
         $.each($allWords , function( index, value ) {
-          allWords[index] = {id:index, welsh_word:value.welsh_word, english_word:value.english_word};
+          allWords[index] = {welsh_word:value.welsh_word, english_word:value.english_word};
           // console.log($allWords[index]);
         });
 
@@ -305,6 +306,7 @@
       });
 
 
+      // ********************* GAME SECTION *********************
       // Game section
       $('.start-game').on('click', function(){
 
@@ -318,18 +320,6 @@
         wordsSetUp();
         // alert("jam")
 
-
-
-        // $('.false').on('click touchstart' , function(){
-        //   $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
-        // });
-        //
-        // $('.correct').on('click touchstart' , function(){
-        //   $(this).css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        //   $('.game-q').css({'background-color': '#64d7d7' , 'color':'#FBFBFF'});
-        // });
-
-//*********************
         // on click for right / wrong answers
         $(".cw-false").click(function(){
              $(this).css({'background-color': '#f05f5a' , 'color':'#FBFBFF'});
@@ -341,22 +331,27 @@
         });
       }); // end of the game function
 
+
       function wordsSetUp(){
         // get max number from allWords
         var maxNum = allWords.length -1;
 
+
         // get 4 unique random number no higher than maxNum
+        // then minus 1 from each value
         var uniqueNum = randomArray(4, maxNum);
+        for (var i = 0; i < uniqueNum.length; i++) {
+          uniqueNum[i] = uniqueNum[i] - 1;
+        }
 
-        console.log(maxNum);
-
-        // set create gameAnswers array which contains welsh and english words
+        // // set create gameAnswers array which contains welsh and english words
         var gameAnswers = [];
         $.each(uniqueNum , function( index, value ) {
           console.log(value);
-           // gameAnswers[index+1] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"cw-false"};
+           gameAnswers[index] = {welsh_word:allWords[value].welsh_word, english_word:allWords[value].english_word, type:"cw-false"};
          });
-        gameAnswers[1].type = "cw-correct";
+        gameAnswers[0].type = "cw-correct";
+        console.log(gameAnswers);
 
         // function to generate an array with random numbers
         function randomArray(len, maxNum){
@@ -370,8 +365,12 @@
         } // end of randomArray function
 
         var fourAray = randomArray(4, 4);
+        for (var i = 0; i < fourAray.length; i++) {
+          fourAray[i] = fourAray[i] - 1;
+        }
+
         $('.game-q').empty();
-        $('.game-q').append(gameAnswers[1].welsh_word);
+        $('.game-q').append(gameAnswers[0].welsh_word);
 
         $('.game-a0').empty();
         $('.game-a1').empty();
@@ -381,7 +380,6 @@
         for (var i = 0; i < fourAray.length; i++) {
           $('.game-a'+ i ).append(gameAnswers[fourAray[i]].english_word);
           $('.game-a'+ i ).addClass(gameAnswers[fourAray[i]].type);
-          console.log(gameAnswers[fourAray[i]].type);
         }
 
       } // end of the wordSetUp function
