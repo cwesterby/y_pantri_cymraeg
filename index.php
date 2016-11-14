@@ -334,9 +334,7 @@
 
       function wordsSetUp(){
         // get max number from allWords
-        var maxNum = allWords.length -1;
-
-        console.log(allWords.length);
+        var maxNum = allWords.length -2;
 
 
         // get 4 unique random number no higher than maxNum
