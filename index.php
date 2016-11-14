@@ -336,7 +336,7 @@
         // get max number from allWords
         var maxNum = allWords.length -1;
 
-        console.log(allWords);
+        console.log(allWords.length);
 
 
         // get 4 unique random number no higher than maxNum
