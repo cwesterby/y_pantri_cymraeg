@@ -303,6 +303,7 @@
         $(".input").hide();
         $(".search").hide();
         $(".game-wrapper").show();
+        $(".pagetitle").show();
       });
 
 
