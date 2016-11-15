@@ -132,7 +132,7 @@
             if(a.welsh_word > b.welsh_word) return 1;
             return 0;
         });
-        console.log(allWords.keys(value).length);
+        console.log(Object.keys(allWords).length);
         console.log(allWords);
 
         // outputs all the words in the database into the results div
