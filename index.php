@@ -30,7 +30,7 @@
   /// get the array of words from the database
   $allWords = $database->getAll();
 
-  /// print out array to check output from database
+  //// print out array to check output from database
   // print_r($allWords);
 
 ?>
@@ -48,7 +48,6 @@
 
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -90,6 +89,7 @@
         <div class="add-icon">+</div>
         <div class="game-icon">g</div>
     </div>
+
     <div class="game-wrapper">
       <div class="btn-info btn start-game col-xs-10">New Word</div>
       <img src="assets/media/icons/teal-cross-full.png" class="cross-icon-game cross-icon cross-game">
@@ -126,12 +126,14 @@
           // console.log($allWords[index]);
         });
 
-        // Sorts the array by welsh_word
+        // sorts the array by welsh_word
         allWords.sort(function(a, b){
             if(a.welsh_word < b.welsh_word) return -1;
             if(a.welsh_word > b.welsh_word) return 1;
             return 0;
         });
+
+        console.log(allWords);
 
         // outputs all the words in the database into the results div
         var Sparent = $('.results');
@@ -223,9 +225,8 @@
                       }
                   }
               }
+            }); // end of the $.each alphabet_array
 
-
-            });
             $lastTable.append('</div>');
 
           } else {
@@ -250,7 +251,6 @@
                       }
                   }
               }
-
               $new_table.append('</div>');
             }); // end of each loop
           } // end of if else statement
@@ -258,16 +258,12 @@
 
 
         $(window).scroll(function() {
-
-            if ($(this).scrollTop()>580)
-             {
-                $('.rectangle').fadeOut();
-             }
-            else
-             {
-              $('.rectangle').fadeIn();
-             }
-         });
+          if ($(this).scrollTop()>580) {
+            $('.rectangle').fadeOut();
+          } else {
+            $('.rectangle').fadeIn();
+          }
+        });
 
        $(".cross-icon-search").click(function(){
             $('.row').remove();
@@ -282,7 +278,6 @@
       $(".cross-icon-game").click(function(){
             $(".game-wrapper").hide();
      });
-
 
       $(".cross-icon-input").click(function(){
             $(".input").hide();
@@ -319,7 +314,6 @@
           $('.game-a'+ i ).off();
         }
         wordsSetUp();
-        // alert("jam")
 
         // on click for right / wrong answers
         $(".cw-false").click(function(){
@@ -336,7 +330,6 @@
       function wordsSetUp(){
         // get max number from allWords
         var maxNum = allWords.length -2;
-
 
         // get 4 unique random number no higher than maxNum
         // then minus 1 from each value
