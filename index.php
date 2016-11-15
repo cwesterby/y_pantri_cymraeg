@@ -132,8 +132,8 @@
             if(a.welsh_word > b.welsh_word) return 1;
             return 0;
         });
-        console.log(Object.keys(allWords).length);
-        console.log(allWords);
+        //console.log(Object.keys(allWords).length);
+        //console.log(allWords);
 
         // outputs all the words in the database into the results div
         var Sparent = $('.results');
@@ -329,7 +329,7 @@
 
       function wordsSetUp(){
         // get max number from allWords
-        var maxNum = allWords.length -2;
+        var maxNum = Object.keys(allWords).length -2;
 
         // get 4 unique random number no higher than maxNum
         // then minus 1 from each value
